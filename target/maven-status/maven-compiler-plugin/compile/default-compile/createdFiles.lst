@@ -1,4 +1,0 @@
-com\customer\transactions\models\Transaction.class
-com\customer\transactions\TransactionsApplication.class
-com\customer\transactions\controllers\TransactionController.class
-com\customer\transactions\services\TransactionService.class
