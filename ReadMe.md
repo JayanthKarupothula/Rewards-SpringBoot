@@ -1,5 +1,33 @@
+# Project Structure
+customer-transactions-rewards/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/customer/transactions/
+│   │   │       ├── controllers/  # REST controllers
+│   │   │       ├── models/       # Entity classes
+│   │   │       ├── repository/   # Spring Data JPA repositories
+│   │   │       └── services/     # Service classes
+│   │   └── resources/
+│   │       ├── application.properties  # Configuration properties
+│   │       └── data.sql                # Sample data for initial setup
+│   └── test/                           # Unit and integration tests
+└── pom.xml                             # Project dependencies and build configuration
+
+This section outlines the main directories and files in this project, providing a quick overview of the project's architecture.
 # Setup
-Download the project from the repository and extract the zip file. Open the project in your favorite IDE.
+Prerequisites
+Ensure you have the following installed on your machine:
+Maven
+Java 11,17 or later
+An Oracle database
+
+git clone https://github.com/JayanthKarupothula/Rewards-SpringBoot
+cd Rewards-SpringBoot
+
+# database setup
+Update src/main/resources/application.properties with your Oracle database configuration:
+
 
 # Building, Running, and Testing the Project
 
@@ -22,6 +50,17 @@ mvn spring-boot:run
 ```bash
 mvn test
 ```
+
+## steps to  populate the database with sample data
+   1) Create the Database Table
+        Make sure your database has the transactions table created
+         example:
+      CREATE TABLE transactions (
+      id NUMBER PRIMARY KEY,
+      amount NUMBER(10, 2),
+      transaction_date DATE
+      );
+      2) Place data.sql in Resources
 
 # API Endpoints
 
@@ -53,7 +92,13 @@ Returns a map of customers to another map of months to reward points for each mo
 **Response:**
 
 - **Code:** 200
-- **Content:** A map where the key is the customer ID and the value is another map. The inner map's key is the month and year (in the format `MONTH-YEAR`), and the value is the total reward points for that month.
+- **Content:**
+  {
+  "JANUARY-2023": 290,
+  "FEBRUARY-2023": 25,
+  "MARCH-2023": 300
+  }
+
 
 ## Total Rewards
 
@@ -68,4 +113,7 @@ Returns a map of customers to their total reward points.
 **Response:**
 
 - **Code:** 200
-- **Content:** A map where the key is the customer ID and the value is the total reward points for that customer.
+- **Content:**
+  {
+  "totalRewardPoints": 615
+  }
