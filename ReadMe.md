@@ -1,4 +1,6 @@
 # Project Structure
+This section outlines the main directories and files in this project, providing a quick overview of the project's architecture.
+
 customer-transactions-rewards/
 ├── src/
 │   ├── main/
@@ -14,7 +16,7 @@ customer-transactions-rewards/
 │   └── test/                           # Unit and integration tests
 └── pom.xml                             # Project dependencies and build configuration
 
-This section outlines the main directories and files in this project, providing a quick overview of the project's architecture.
+
 # Setup
 Prerequisites
 Ensure you have the following installed on your machine:
